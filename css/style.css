@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 14px;
+    list-style:none;
+    text-decoration: none;
+    color: black;
+}
+body{
+    background-color: rgb(100, 197, 100);
+}
+header{
+    display: table;
+    position: relative;
+    text-align: center;
+	width:1000px;
+	height:200px;
+	background-color: aqua;
+	margin:20px auto;
+}
+
+header p{
+    display: table-cell;
+    font-size: 40px;
+    font-family: 'Caveat', cursive;
+    vertical-align: middle;
+}
+nav{
+    display: table;
+    position:relative;
+	margin:auto;
+	width:1000px;
+	height:48px;
+    background-color: aquamarine;
+}
+
+#top ul{
+    width: 1000px;
+    height: 48px;
+    display: flex;
+}
+
+
+nav a{
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    border-radius: 35px;
+    text-align: center;
+    font-size: 25px;
+    width: 250px;
+    height: 48px;
+    background-color: gray;
+    margin:0 2px;
+}
+
+
+a:hover, a:link {
+    animation-name: background-color;
+    animation-duration: 500ms;
+    color: red;
+    animation-fill-mode: forwards;
+
+}
+@keyframes background-color{
+    100%{
+      background-color: #4791d0;
+    }
+  }
