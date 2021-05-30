@@ -6,6 +6,9 @@
     list-style:none;
     text-decoration: none;
     color: black;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 body{
     background-color: rgb(100, 197, 100);
@@ -27,21 +30,8 @@ header p{
     vertical-align: middle;
 }
 nav{
-    display: table;
-    position:relative;
-	margin:auto;
-	width:1000px;
-	height:48px;
-    background-color: aquamarine;
+    position: relative;
 }
-
-#top ul{
-    width: 1000px;
-    height: 48px;
-    display: flex;
-}
-
-
 nav a{
     display: table-cell;
     vertical-align: middle;
@@ -49,22 +39,43 @@ nav a{
     border-radius: 35px;
     text-align: center;
     font-size: 25px;
-    width: 250px;
+    width: 326px;
     height: 48px;
-    background-color: gray;
+    background-color: green;
     margin:0 2px;
 }
-
-
-a:hover, a:link {
-    animation-name: background-color;
-    animation-duration: 500ms;
-    color: red;
-    animation-fill-mode: forwards;
-
+.navegador{
+    margin: auto;
+    width: 1000px;
+    height: 48px;
+    background-color: aquamarine;
 }
-@keyframes background-color{
-    100%{
-      background-color: #4791d0;
-    }
-  }
+
+.linkss > li{
+    position: relative;
+    display: inline-block;
+}
+
+
+.linkss > li > a:hover{
+    color: #CE7D35;
+	transition: all .3s;
+}
+
+.drop{
+    position: absolute;
+    width: 120%;
+    visibility: hidden;
+    opacity: 0;
+	transition: opacity 1.5s;
+}
+
+.drop li a{
+	display: block;
+	padding: 15px;
+}
+
+.linkss li:hover .drop{
+	visibility: visible;
+	opacity: 1;
+}
