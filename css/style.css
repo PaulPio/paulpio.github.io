@@ -13,6 +13,8 @@
 body{
     background-color: rgb(100, 197, 100);
 }
+
+/*Header para el mensaje de arriba*/
 header{
     display: table;
     position: relative;
@@ -29,9 +31,12 @@ header p{
     font-family: 'Caveat', cursive;
     vertical-align: middle;
 }
+
+/*Para la barra de navegacion*/
 nav{
     position: relative;
 }
+/*Para el menu*/
 nav a{
     display: table-cell;
     vertical-align: middle;
@@ -41,14 +46,13 @@ nav a{
     font-size: 25px;
     width: 326px;
     height: 48px;
-    background-color: green;
+    background-color: #4791d0;
     margin:0 2px;
 }
 .navegador{
     margin: auto;
     width: 1000px;
     height: 48px;
-    background-color: aquamarine;
 }
 
 .linkss > li{
@@ -56,14 +60,33 @@ nav a{
     display: inline-block;
 }
 
-
-.linkss > li > a:hover{
+a:hover{
     color: #CE7D35;
 	transition: all .3s;
 }
-
-.drop{
+/*Submenu*/
+.submenu{
     position: absolute;
+    width: 120%;
+    visibility: hidden;
+    opacity: 0;
+	transition: opacity 1.5s;
+}
+
+.submenu li a{
+	display: block;
+	padding: 15px;
+}
+
+.linkss li:hover .submenu{
+	visibility: visible;
+	opacity: 1;
+}
+
+
+
+/*Submenus del submenu*/
+.drop{
     width: 120%;
     visibility: hidden;
     opacity: 0;
@@ -75,7 +98,10 @@ nav a{
 	padding: 15px;
 }
 
-.linkss li:hover .drop{
+.submenu li:hover .drop{
+    position: relative;
+    bottom: 48px;
+    left:326px;
 	visibility: visible;
 	opacity: 1;
 }
