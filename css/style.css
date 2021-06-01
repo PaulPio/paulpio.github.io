@@ -12,6 +12,7 @@
 }
 body{
     background-color: rgb(100, 197, 100);
+    z-index: -6;
 }
 
 /*Header para el mensaje de arriba*/
@@ -32,46 +33,37 @@ header p{
     vertical-align: middle;
 }
 
-
 /*Para los iconos de las redes sociales*/
 .redes{
 	position:absolute;
 	width:42px;
 	height:42px;
-	background:#ccc;
 	border-radius:100%;
-	text-align:center;
-	line-height:42px;
-	color:white;
 	}
 
-    img{
-        width:42px;
-	    height:42px;
+img{
+     width:42px;
+	height:42px;
     }
 	
 #icono1{
 	top:42px;
 	right:170px;
-	
 	}
 	
 #icono2{
 	top:42px;
 	right:120px;
-	
 	}
 	
 #icono3{
 	top:42px;
 	right:71px;
-	
 	}
 
 #icono4{
     top:42px;
 	right:19px;
-	
 }
 /*Para la barra de navegacion*/
 nav{
@@ -90,7 +82,7 @@ nav a{
     height: 48px;
     background-color: #4791d0;
     margin:0 2px;
-    z-index: 9;
+    z-index: 2;
 }
 .navegador{
     margin: auto;
@@ -103,13 +95,15 @@ nav a{
     display: inline-block;
 }
 
-a:hover{
+nav a:hover{
     color: #CE7D35;
-	transition: all .3s;
-    z-index: 11;
+    transition: all .3s;
+    z-index: 3;
 }
+
 /*Submenu*/
 .submenu{
+    z-index: 2;
     position: absolute;
     width: 120%;
     visibility: hidden;
@@ -126,8 +120,6 @@ a:hover{
 	visibility: visible;
 	opacity: 1;
 }
-
-
 
 /*Submenus del submenu*/
 .drop{
@@ -150,7 +142,6 @@ a:hover{
 	opacity: 1;
 }
 
-
 /*Para la parte del medio*/
 
 section{
@@ -158,8 +149,6 @@ section{
     margin:10px auto;
     width:1000px;
     height:453px;
-    background-color: chocolate;
-    z-index: -2;
 }
 
 
@@ -189,7 +178,7 @@ article{
     left: 200px;
     width: 800px;
     height: 453px;
-    background-color: aliceblue;
+    
 }
 
 /*Para el footer*/
