@@ -1,120 +1,120 @@
+/* Archivo css */
+/* Configuraciones globales */
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    font-size: 14px;
     list-style:none;
     text-decoration: none;
-    color: black;
-    -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 }
+
+/* body */
 body{
-    background-color: rgb(100, 197, 100);
-    z-index: -6;
+    background: rgb(99, 161, 99);
+    color: #000;
+
+}
+/* contenedor del grid donde se ubica el html */
+.contenedor{
+    width: 90%;
+	max-width: 1000px;
+	margin: 20px auto;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, auto);
+
+	grid-template-areas: "header header header"
+						 "navegador navegador navegador"
+						 "barra contenido contenido"
+						 "footer footer footer";
 }
 
-/*Header para el mensaje de arriba*/
-header{
-    display: table;
-    position: relative;
+
+/* Diseño generico */
+.contenedor > div,
+.contenedor .header,
+.contenedor .navegador,
+.contenedor .contenido,
+.contenedor .barra,
+.contenedor .footer {
+	background: #fff;
+	padding: 20px;
+	border-radius: 4px;
+}
+
+/* header diseño */
+.contenedor .header {
+	background: #12203E;
+	color: #fff;
+	grid-area: header;
     text-align: center;
-	width:1000px;
-	height:200px;
-	background-color: aqua;
-	margin:20px auto;
-}
-
-header p{
-    display: table-cell;
-    font-size: 40px;
     font-family: 'Caveat', cursive;
-    vertical-align: middle;
+    font-size: 20px;
 }
 
-/*Para los iconos de las redes sociales*/
+
+
+/* Redes socailes iconos */
+
 .redes{
-	position:absolute;
-	width:42px;
-	height:42px;
-	border-radius:100%;
-	}
-
-img{
-     width:42px;
-	height:42px;
-    }
-	
-#icono1{
-	top:42px;
-	right:170px;
-	}
-	
-#icono2{
-	top:42px;
-	right:120px;
-	}
-	
-#icono3{
-	top:42px;
-	right:71px;
-	}
-
-#icono4{
-    top:42px;
-	right:19px;
+    display: inline;
+    width: 42px;
+    height: 42px;
 }
-/*Para la barra de navegacion*/
-nav{
-    position: relative;
+
+.redes img{
+    border-radius: 100%;
+    justify-content:right;
+    width: 42px;
+    height: 42px;
 }
-/*Para el menu*/
-nav a{
+
+/* barra de navegacion diseño */
+.contenedor .navegador{
+    grid-area: navegador;
     font-family: 'Caveat', cursive;
-    display: table-cell;
-    vertical-align: middle;
+    font-size: 30px;
+    background-color: rgb(174, 228, 205);
+
+}
+
+/* Display para que quede ocupando toda la parte de la pantalla */
+.navegador ul{
+    /* PAra que este ditribuido en toda la barra */
+    display: flex;
+}
+
+.menu > li{
     position: relative;
-    border-radius: 35px;
+    flex-grow:1; 
     text-align: center;
-    font-size: 25px;
-    width: 326px;
-    height: 48px;
-    background-color: #4791d0;
-    margin:0 2px;
-    z-index: 2;
-}
-.navegador{
-    margin: auto;
-    width: 1000px;
-    height: 48px;
 }
 
-.linkss > li{
-    position: relative;
-    display: inline-block;
-}
+.menu > li  a{
+    background-color: rgb(174, 228, 205);
 
-.linkss > li  a{
     padding-top: 10px;
     display: block;
 }
-.linkss li ul {
+
+.menu li ul {
     display:none;
     position:absolute;
-    min-width:336px;
+    min-width:100%;
 }
 
-.linkss li:hover > ul {
+.menu li:hover > ul {
     display:block;
 }
 
-.linkss li ul li {
+.menu li ul li {
     position:relative;
+    z-index: 10000;
+    text-align: center;
 }
 
-.linkss li ul li ul {
-    right:-336px;
+.menu li ul li ul {
+    right:-100%;
     top:0px;
 }
 
@@ -125,54 +125,43 @@ nav a:hover{
 }
 
 
-/*Para la parte del medio*/
-
-section{
-    position:relative;
-    margin:10px auto;
-    width:1000px;
-    height:453px;
-}
-
-
-/*Para la columna de skills*/
-aside#izq{
-	position:absolute;
-	left:0;
-	top:0;
-	width:200px;
-	height:453px;
-	}
-	
-	
-aside#izq ul li{
-	background:#aaa;
-	padding:15px;
-	margin:2px 10px;
-	list-style-position:inside;
+/* Barra izquierda de skills */
+.contenedor .barra {
+    background: #fAA43D;
+    display: table;
+    min-height: 100px;
+    grid-area: barra;
     font-family: 'Caveat', cursive;
     font-size: 20px;
 }
-	
-/*Para el articulo*/
 
-article{
-    position: absolute;
-    left: 200px;
-    width: 800px;
-    height: 453px;
-    
+
+.barra ul {
+    display: table-cell;
 }
 
-/*Para el footer*/
-footer{
-    font-family: 'Caveat', cursive;
-    line-height:70px;
-    font-size: 25px;
+.barra ul li{
+   height: 10vh;
+   font-size: 25px;
+}
+
+.barra img{
+    width: 32px;
+    height: 32px;
+}
+
+/* Contenido del aritucolo */
+.contenedor .contenido {
+    background:rgb(47, 231, 216);
+    font-family: 'Roboto', sans-serif;
+	grid-area: contenido;
+}
+
+
+/* Footer diseño */
+.contenedor .footer {
     text-align: center;
-    position: relative;
-    margin: 20px auto;
-    background-color: gray;
-    width: 1000px;
-    height: 70px;
+	background: #12203E;
+	color: #fff;
+	grid-area: footer;
 }

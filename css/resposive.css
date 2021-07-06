@@ -11,12 +11,22 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
 body{
     background-color: rgb(100, 197, 100);
     z-index: -6;
+	max-height: 1000px;
 }
 
+/* .contenedor{
+	height: 90%;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, auto);
+
+	grid-template-areas: "header header header"
+						 "navegador navegador navegador"
+						 "barra_izq contenido contenido"
+						 "footer footer footer";
+} */
 /*Header para el mensaje de arriba*/
 header{
     display: table;
@@ -33,6 +43,7 @@ header p{
     font-size: 40px;
     font-family: 'Caveat', cursive;
     vertical-align: middle;
+	text-align: right;
 }
 
 /*Para los iconos de las redes sociales*/
@@ -41,31 +52,28 @@ header p{
 	width:42px;
 	height:42px;
 	border-radius:100%;
-    text-align:end;
 	}
 
 img{
-     width:42px;
+	position: relative;
+	top: 50%;
+    width:42px;
 	height:42px;
     }
 	
 #icono1{
-	top:75px;
 	right:170px;
 	}
 	
 #icono2{
-	top:75px;
 	right:120px;
 	}
 	
 #icono3{
-	top:75px;
 	right:71px;
 	}
 
-#icono4{
-    top:75px;
+#icono4{ 
 	right:19px;
 }
 /*Para la barra de navegacion*/
@@ -75,28 +83,27 @@ nav{
 /*Para el menu*/
 nav a{
     font-family: 'Caveat', cursive;
-    display: table-cell;
-    vertical-align: middle;
-    position: relative;
+    /* position: relative; */
     border-radius: 35px;
     text-align: center;
     font-size: 25px;
-    width: 100%;
     height: 48px;
     background-color: #4791d0;
     margin:0 2px;
     z-index: 2;
 }
 .navegador{
+	/* grid-area: navegador; */
     clear: both;
     margin: auto;
-    width: 100%;
     height: 48px;
 }
 
-.linkss > li{
-    position: relative;
-    display: inline-block;
+.navegador ul{
+	display: flex;
+}
+.navegador > ul > li{
+	flex-grow: 1;
 }
 
 .linkss > li  a{
@@ -106,7 +113,7 @@ nav a{
 .linkss li ul {
     display:none;
     position:absolute;
-    min-width:100%;
+    min-width:34.5%;
 }
 
 .linkss li:hover > ul {
@@ -116,26 +123,31 @@ nav a{
 .linkss li ul li {
     position:relative;
 }
-
+.submenu_ li{
+	width: 282%;
+}
 .linkss li ul li ul {
-    right:-449.67px;
+	width: 34.5%;
+	left: 100%;
     top:0px;
 }
 
 nav a:hover{
     color: #CE7D35;
     transition: all .3s;
-    z-index: 3;
+    z-index: 10;
 }
 
 
 /*Para la parte del medio*/
 
-#section1{
+section{
     position:relative;
     margin:10px auto;
     width:100%;
-    height:453px;
+    height:453px; 
+	max-height: 800px;
+	z-index: -10;
 }
 
 
@@ -144,14 +156,13 @@ aside#izq{
 	position:absolute;
 	left:0;
 	top:0;
-	/* width:200px; */
-	height:auto;
+	width:20%;
+	height:453px;
 	}
 	
-	
+
 aside#izq ul li{
 	background:#aaa;
-    height: auto;
 	padding:15px;
 	margin:2px 10px;
 	list-style-position:inside;
@@ -162,10 +173,11 @@ aside#izq ul li{
 /*Para el articulo*/
 
 article{
-    position: relative;
-    left: 465px;
-    width: 100%;
-    height: auto;
+    position: absolute;
+    left: 20%;
+    width: 80%;
+    height: 453px;
+    
 }
 
 /*Para el footer*/
@@ -178,17 +190,13 @@ footer{
     margin: 20px auto;
     background-color: gray;
     width: 100%;
-    height: auto;
+    height: 70px;
+	max-height: 70px;
 }
 
 
+
 /* Estilos resposivos */
-
-
-/*=============================================
-PANTALLA DE ESCRITORIO GRANDE - LARGE (lg) - revisamos en portatil o pc
-=============================================*/
-
 @media(min-width:1200px){
 
 	.col-lg-12{width:100%;}
@@ -199,14 +207,14 @@ PANTALLA DE ESCRITORIO GRANDE - LARGE (lg) - revisamos en portatil o pc
 	.col-lg-7{width:58.33333333%;}
 	.col-lg-6{width:50%;}
 	.col-lg-5{width:41.66666667%;}
-	.col-lg-4{width: 33%;}
+	.col-lg-4{width: 33.33333333%;}
 	.col-lg-3{width: 25%;}
 	.col-lg-2 {width: 16.66666667%;}
 	.col-lg-1 {width: 8.33333333%;}
 	.col-lg-0 {display:none;}
 
-
 }
+
 
 /*=============================================
 PANTALLA DE ESCRITORIO MEDIANO - MEDIUM (md) - revisamos en tablet horizontal 1024px
@@ -218,7 +226,7 @@ PANTALLA DE ESCRITORIO MEDIANO - MEDIUM (md) - revisamos en tablet horizontal 10
 	.col-md-11{width:91.66666667%;}
 	.col-md-10{width:83.33333333%;}
 	.col-md-9{width:75%;}
-	.col-md-8{width:66%;}
+	.col-md-8{width:66.66666667%;}
 	.col-md-7{width:58.33333333%;}
 	.col-md-6{width:50%;}
 	.col-md-5{width:41.66666667%;}
@@ -252,6 +260,7 @@ PANTALLA DE TABLET - SMALL (sm) - revisamos en tablet vertical 768px
 	
 }
 
+
 /*=============================================
 PANTALLA DE PHONES - EXTRA SMALL (xs) - revisamos en movil horizontal 480px o vertical 320px
 =============================================*/
@@ -272,7 +281,4 @@ PANTALLA DE PHONES - EXTRA SMALL (xs) - revisamos en movil horizontal 480px o ve
 	.col-xs-1{width: 8.33333333%;}
 	.col-xs-0 {display:none;}
 
-
 }
-
-
