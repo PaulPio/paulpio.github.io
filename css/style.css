@@ -128,21 +128,20 @@ nav a:hover{
 /* Barra izquierda de skills */
 .contenedor .barra {
     background: #fAA43D;
-    display: table;
-    min-height: 100px;
+    display: flex;
+    /* flex-direction: column;  */
     grid-area: barra;
     font-family: 'Caveat', cursive;
     font-size: 20px;
 }
 
 
-.barra ul {
-    display: table-cell;
-}
 
 .barra ul li{
-   height: 10vh;
-   font-size: 25px;
+    flex-grow: 1;
+    height: 8vh;
+    min-height: 5vh;
+    font-size: 25px;
 }
 
 .barra img{
@@ -165,3 +164,47 @@ nav a:hover{
 	color: #fff;
 	grid-area: footer;
 }
+
+/* Estilos responsivos */
+
+/* Para tablet */
+
+
+
+/* Para telefono moviles */
+@media screen and (max-width: 1024px) {
+    .contenedor{
+        width: 90%;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, auto);
+    
+        grid-template-areas: "header header header"
+                             "navegador navegador navegador"
+                             "contenido contenido contenido"
+                             "barra barra barra"
+                             "footer footer footer";
+    }
+
+    .barra ul{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 0px;
+        height: 3vh;
+        flex-grow: 1;
+        
+    }
+    
+    .barra ul li{
+        justify-content: center;
+        display: inline-block;
+        font-size: 0;
+        margin: auto;
+        padding: auto;
+    }
+
+ }
