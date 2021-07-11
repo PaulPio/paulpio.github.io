@@ -1,120 +1,121 @@
+/* Archivo css */
+/* Configuraciones globales */
 *{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    font-size: 14px;
     list-style:none;
     text-decoration: none;
-    color: black;
-    -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 }
+
+/* body */
 body{
-    background-color: rgb(100, 197, 100);
-    z-index: -6;
+    background: rgb(99, 161, 99);
+    color: #000;
+
+}
+/* contenedor del grid donde se ubica el html */
+.contenedor{
+    width: 90%;
+	max-width: 1000px;
+	margin: 20px auto;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, auto);
+
+	grid-template-areas: "header header header"
+						 "navegador navegador navegador"
+						 "barra contenido contenido"
+						 "footer footer footer";
 }
 
-/*Header para el mensaje de arriba*/
-header{
-    display: table;
-    position: relative;
+
+/* Diseño generico */
+.contenedor > div,
+.contenedor .header,
+.contenedor .navegador,
+.contenedor .contenido,
+.contenedor .barra,
+.contenedor .footer {
+	background: #fff;
+	padding: 20px;
+	border-radius: 4px;
+}
+
+/* header diseño */
+.contenedor .header {
+	background: #12203E;
+	color: #fff;
+	grid-area: header;
     text-align: center;
-	width:1000px;
-	height:200px;
-	background-color: aqua;
-	margin:20px auto;
-}
-
-header p{
-    display: table-cell;
-    font-size: 40px;
     font-family: 'Caveat', cursive;
-    vertical-align: middle;
+    font-size: 20px;
 }
 
-/*Para los iconos de las redes sociales*/
+
+
+/* Redes socailes iconos */
+
 .redes{
-	position:absolute;
-	width:42px;
-	height:42px;
-	border-radius:100%;
-	}
-
-img{
-    width:42px;
-	height:42px;
-    }
-	
-#icono1{
-	top:42px;
-	right:170px;
-	}
-	
-#icono2{
-	top:42px;
-	right:120px;
-	}
-	
-#icono3{
-	top:42px;
-	right:71px;
-	}
-
-#icono4{
-    top:42px;
-	right:19px;
+    display: inline;
+    width: 42px;
+    height: 42px;
 }
-/*Para la barra de navegacion*/
-nav{
-    position: relative;
+
+.redes img{
+    border-radius: 100%;
+    justify-content:right;
+    width: 42px;
+    height: 42px;
 }
-/*Para el menu*/
-nav a{
+
+/* barra de navegacion diseño */
+.contenedor .navegador{
+    grid-area: navegador;
     font-family: 'Caveat', cursive;
-    display: table-cell;
-    vertical-align: middle;
+    font-size: 30px;
+    background-color: rgb(174, 228, 205);
+
+}
+
+/* Display para que quede ocupando toda la parte de la pantalla */
+.navegador ul{
+    /* PAra que este ditribuido en toda la barra */
+    display: flex;
+}
+
+.menu > li{
     position: relative;
-    border-radius: 35px;
+    flex-grow:1; 
     text-align: center;
-    font-size: 25px;
-    /* width: 326px; */
-    /* height: 48px; */
-    background-color: #4791d0;
-    margin:0 2px;
-    z-index: 2;
-}
-.navegador{
-    margin: auto;
-    /* width: 1000px; */
-    /* height: 48px; */
 }
 
-.linkss > li{
-    position: relative;
-    display: inline-block;
-}
+.menu > li  a{
+    background-color: rgb(174, 228, 205);
 
-.linkss > li  a{
     padding-top: 10px;
     display: block;
 }
-.linkss li ul {
+
+.menu li ul {
     display:none;
     position:absolute;
-    min-width:336px;
+    min-width:100%;
 }
 
-.linkss li:hover > ul {
+.menu li:hover > ul {
     display:block;
 }
 
-.linkss li ul li {
+.menu li ul li {
     position:relative;
+    z-index: 10000;
+    text-align: center;
 }
 
-.linkss li ul li ul {
-    /* right:-33%	; */
+.menu li ul li ul {
+    right:-100%;
     top:0px;
 }
 
@@ -125,148 +126,86 @@ nav a:hover{
 }
 
 
-/*Para la parte del medio*/
-
-section{
-    position:relative;
-    margin:10px auto;
-    width:1000px;
-    height:453px;
-}
-
-
-/*Para la columna de skills*/
-aside#izq{
-	position:absolute;
-	left:0;
-	top:0;
-	width:200px;
-	height:453px;
-	}
-	
-	
-aside#izq ul li{
-	background:#aaa;
-	padding:15px;
-	margin:2px 10px;
-	list-style-position:inside;
+/* Barra izquierda de skills */
+.contenedor .barra {
+    background: #fAA43D;
+    display: flex;
+    /* flex-direction: column;  */
+    grid-area: barra;
     font-family: 'Caveat', cursive;
     font-size: 20px;
 }
-	
-/*Para el articulo*/
 
-article{
-    position: absolute;
-    left: 200px;
-    width: 800px;
-    height: 453px;
-    
-}
 
-/*Para el footer*/
-footer{
-    font-family: 'Caveat', cursive;
-    line-height:70px;
+
+.barra ul li{
+    flex-grow: 1;
+    height: 8vh;
+    min-height: 5vh;
     font-size: 25px;
+}
+
+.barra img{
+    width: 32px;
+    height: 32px;
+}
+
+/* Contenido del aritucolo */
+.contenedor .contenido {
+    background:rgb(47, 231, 216);
+    font-family: 'Roboto', sans-serif;
+	grid-area: contenido;
+}
+
+
+/* Footer diseño */
+.contenedor .footer {
     text-align: center;
-    position: relative;
-    margin: 20px auto;
-    background-color: gray;
-    width: 1000px;
-    height: 70px;
+	background: #12203E;
+	color: #fff;
+	grid-area: footer;
 }
 
+/* Estilos responsivos */
+
+/* Para tablet */
 
 
-/*=============================================
-PANTALLA DE ESCRITORIO GRANDE - LARGE (lg) - revisamos en portatil o pc
-=============================================*/
 
-@media(min-width:1200px){
+/* Para telefono moviles */
+@media screen and (max-width: 1024px) {
+    .contenedor{
+        width: 90%;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, auto);
+    
+        grid-template-areas: "header header header"
+                             "navegador navegador navegador"
+                             "contenido contenido contenido"
+                             "barra barra barra"
+                             "footer footer footer";
+    }
 
-	.col-lg-12{width:100%;}
-	.col-lg-11{width:91%;}
-	.col-lg-10{width:83%;}
-	.col-lg-9{width:75%;}
-	.col-lg-8{width:66%;}
-	.col-lg-7{width:58%;}
-	.col-lg-6{width:50%;}
-	.col-lg-5{width:41%;}
-	.col-lg-4{width: 33%;}
-	.col-lg-3{width: 25%;}
-	.col-lg-2 {width: 16%;}
-	.col-lg-1 {width: 8%;}
-	.col-lg-0 {display:none;}
+    .barra ul{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 0px;
+        height: 3vh;
+        flex-grow: 1;
+        
+    }
+    
+    .barra ul li{
+        justify-content: center;
+        display: inline-block;
+        font-size: 0;
+        margin: auto;
+        padding: auto;
+    }
 
-	}
-
-/*=============================================
-PANTALLA DE ESCRITORIO MEDIANO - MEDIUM (md) - revisamos en tablet horizontal 1024px
-=============================================*/
-
-@media(max-width:1199px) and (min-width:992px){
-
-	.col-md-12{width:100%;}
-	.col-md-11{width:91%;}
-	.col-md-10{width:83%;}
-	.col-md-9{width:75%;}
-	.col-md-8{width:66%;}
-	.col-md-7{width:58%;}
-	.col-md-6{width:50%;}
-	.col-md-5{width:41%;}
-	.col-md-4{width: 33%;}
-	.col-md-3{width: 25%;}
-	.col-md-2{width: 16%;}
-	.col-md-1{width: 8%;}
-	.col-md-0 {display:none;}
-}
-	
-/*=============================================
-PANTALLA DE TABLET - SMALL (sm) - revisamos en tablet vertical 768px
-=============================================*/
-
-@media(max-width:991px) and (min-width:768px){
-
-	.col-sm-12{width:100%;}
-	.col-sm-11{width:91%;}
-	.col-sm-10{width:83%;}
-	.col-sm-9{width:75%;}
-	.col-sm-8{width:66%;}
-	.col-sm-7{width:58%;}
-	.col-sm-6{width:50%;}
-	.col-sm-5{width:41%;}
-	.col-sm-4{width: 33%;}
-	.col-sm-3{width: 25%;}
-	.col-sm-2{width: 16%;}
-	.col-sm-1{width: 8%;}
-	.col-sm-0 {display:none;}
-	
-	
-}
-
-/*=============================================
-PANTALLA DE PHONES - EXTRA SMALL (xs) - revisamos en movil horizontal 480px o vertical 320px
-=============================================*/
-
-@media(max-width:767px){
-
-	.col-xs-12{width:100%;}
-	.col-xs-11{width:91%;}
-	.col-xs-10{width:83%;}
-	.col-xs-9{width:75%;}
-	.col-xs-8{width:66%;}
-	.col-xs-7{width:58%;}
-	.col-xs-6{width:50%;}
-	.col-xs-5{width:41%;}
-	.col-xs-4{width: 33%;}
-	.col-xs-3{width: 25%;}
-	.col-xs-2{width: 16%;}
-	.col-xs-1{width: 8%;}
-	.col-xs-0 {display:none;}
-
-	
-
-}
-
-
+ }
