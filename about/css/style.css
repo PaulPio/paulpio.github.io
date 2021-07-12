@@ -48,24 +48,33 @@ body{
 	background: #12203E;
 	color: #fff;
 	grid-area: header;
-    text-align: center;
+    display: flex;
+    height: 126px;
+    justify-content: space-around;
+    align-items: center;
     font-family: 'Caveat', cursive;
     font-size: 20px;
+    flex-wrap: no-wrap;
 }
 
-
+.titulo{
+    flex-grow: 1;
+    text-align: right;
+}
 
 /* Redes socailes iconos */
 
 .redes{
-    display: inline;
+    flex-grow: 1;
+    display: flex;
     width: 42px;
     height: 42px;
+    justify-content: flex-end;
+
 }
 
 .redes img{
     border-radius: 100%;
-    justify-content:right;
     width: 42px;
     height: 42px;
 }
@@ -129,26 +138,28 @@ nav a:hover{
 /* Barra izquierda de skills */
 .contenedor .barra {
     background: #fAA43D;
-    display: flex;
-    /* flex-direction: column;  */
     grid-area: barra;
     font-family: 'Caveat', cursive;
-    font-size: 20px;
+    
 }
 
 
+.skills{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
-.barra ul li{
+.skills li{
     flex-grow: 1;
-    height: 8vh;
-    min-height: 5vh;
     font-size: 25px;
 }
 
-.barra img{
-    width: 32px;
-    height: 32px;
+.skills li img{
+    margin-right: 5px;
+    vertical-align: top;
 }
+
 
 /* Contenido del aritucolo */
 .contenedor .contenido {
@@ -170,7 +181,38 @@ nav a:hover{
 
 /* Para tablet */
 
+/* @media screen and (max-width:1024px) and (min-width: 764px){
+    .contenedor{
+        width: 90%;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, auto);
+    
+        grid-template-areas: "header header header"
+                             "navegador navegador navegador"
+                             "contenido contenido contenido"
+                             "barra barra barra"
+                             "footer footer footer";
+    }
 
+
+    //Para la barra de las skills
+   .skills{
+        display:flex;
+        flex-direction: row;
+        justify-content:center;
+        flex-wrap: wrap;
+    }
+    .skills li{
+        font-size: 0;
+        flex-grow: 1;
+    }
+    .skills li img{
+        vertical-align: top;
+    }
+
+} */
 
 /* Para telefono moviles */
 @media screen and (max-width: 1024px) {
@@ -188,24 +230,26 @@ nav a:hover{
                              "footer footer footer";
     }
 
-    .barra ul{
-        display:flex;
+    .header{
         flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        font-size: 0px;
-        height: 3vh;
-        flex-grow: 1;
-        
+        justify-content:center; 
     }
-    
-    .barra ul li{
+    .redes{
         justify-content: center;
-        display: inline-block;
+    }
+    /* Para la barra de las skills */
+    .skills{
+        display:flex;
+        flex-direction: row;
+        justify-content:center;
+        flex-wrap: wrap;
+    }
+    .skills li{
         font-size: 0;
-        margin: auto;
-        padding: auto;
+        flex-grow: 1;
+    }
+    .skills li img{
+        vertical-align: top;
     }
 
  }
