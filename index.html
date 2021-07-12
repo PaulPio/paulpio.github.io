@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet"> 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="about/fonts.css">
 </head>
 <body>
     <div class="contenedor">
@@ -24,14 +25,17 @@
                 <a target="_blank" href="https://github.com/PaulPio"><img src="img/github.png" alt="X"></a>
             </div>
         </header>
-
+        <div class="menu_bar">
+            <a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
+        </div>
         <nav class="navegador">
-            <ul class="menu">
-                <li><a href="https://paulpio.github.io/">Inicio</a></li>
-                <li><a href="https://github.com/PaulPio">Proyectos</a>
+            <ul class="menu">   
                 
-                    <ul class="submenu">
-                        <li><a href="https://github.com/PaulPio/PlatziProject">Platzi</a>
+                <li><a href="https://paulpio.github.io/">Inicio</a></li>
+                <li class="submenu"><a href="https://github.com/PaulPio">Proyectos</a>
+                
+                    <ul class="children">
+                        <li class="sub_menu"><a href="https://github.com/PaulPio/PlatziProject">Platzi</a>
                         
                             <ul>
                                 <li><a href="https://paulpio.github.io/PlatziProject/Curso%20de%20Prog%20Basica/canvas/index.html">Canvas</a></li>
@@ -42,6 +46,7 @@
                         
                         </li>
                         <li><a href="https://github.com/PaulPio/urbeproyectos">Universidad Proyectos</a></li>
+                        <li><a href="https://github.com/PaulPio/Proyectos">Autodidacta</a></li>
                     </ul>
 
                 </li>
@@ -87,6 +92,8 @@
             &copy; Todos los derechos reservados.
         </footer>
     </div>
-
+    <!-- Codigo javascript para el menu responsivo -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>

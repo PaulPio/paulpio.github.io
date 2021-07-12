@@ -6,6 +6,8 @@
     padding: 0;
     list-style:none;
     text-decoration: none;
+    -webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 }
 
 /* body */
@@ -87,6 +89,9 @@ body{
     background-color: rgb(174, 228, 205);
 
 }
+.menu_bar, .menu_responsivo{
+	display:none;
+}
 
 /* Display para que quede ocupando toda la parte de la pantalla */
 .navegador ul{
@@ -102,7 +107,6 @@ body{
 
 .menu > li  a{
     background-color: rgb(174, 228, 205);
-
     padding-top: 10px;
     display: block;
 }
@@ -215,7 +219,7 @@ nav a:hover{
 } */
 
 /* Para telefono moviles */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 900px) {
     .contenedor{
         width: 90%;
         display: grid;
@@ -229,7 +233,6 @@ nav a:hover{
                              "barra barra barra"
                              "footer footer footer";
     }
-
     .header{
         flex-direction: column;
         justify-content:center; 
@@ -251,5 +254,73 @@ nav a:hover{
     .skills li img{
         vertical-align: top;
     }
+
+    /* Para el menu de navegacion */
+    
+	.navegador{
+        width:70%;
+		height:100%;
+		left:-100%;
+        top: 22.4%;
+		margin:0;
+		position: fixed;
+        overflow: scroll;
+    }
+
+    .navegador ul{
+       
+        /* PAra que este ditribuido en toda la barra */
+        
+        flex-direction: column;
+    }
+   
+    .menu li{
+        border-bottom:1px solid rgba(48, 109, 43, 0.3);
+
+    }
+  
+    .menu li ul {
+        position: relative;
+    }
+     
+	.menu_bar {
+        /* position: fixed; */
+		display:block;
+        grid-area: navegador;
+		width:100%;
+		background:#ccc;
+	}
+
+	.menu_bar .bt-menu {
+		display:block;
+		padding:20px;
+		background:#024959;
+		color:#fff;
+		font-size:25px;
+	}
+
+	.menu_bar span {
+		float:right;    
+		font-size:40px;
+	}
+
+    .menu li ul li {
+        display:block;
+        width: 100%;
+        position: relative;
+    }
+    .menu li:hover > ul {
+        display: none;
+    }
+    .menu li ul li ul {
+        right:0;
+        position: relative;
+        
+    }
+    .submenu a[href="https://github.com/PaulPio"]{
+        pointer-events: none;
+        cursor:pointer;
+        }
+
 
  }
