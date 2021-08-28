@@ -1,0 +1,324 @@
+/* Archivo css */
+/* Configuraciones globales */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style:none;
+    text-decoration: none;
+}
+
+/* body */
+body{
+    background: rgb(99, 161, 99);
+    color: #000;
+
+}
+/* contenedor del grid donde se ubica el html */
+.contenedor{
+    width: 90%;
+	max-width: 1000px;
+	margin: 20px auto;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, auto);
+
+	grid-template-areas: "header header header"
+						 "navegador navegador navegador"
+						 "barra contenido contenido"
+						 "footer footer footer";
+}
+
+
+/* Diseño generico */
+.contenedor > div,
+.contenedor .header,
+.contenedor .navegador,
+.contenedor .contenido,
+.contenedor .barra,
+.contenedor .footer {
+	background: #fff;
+	padding: 20px;
+	border-radius: 4px;
+}
+
+/* header diseño */
+.contenedor .header {
+	background: #12203E;
+	color: #fff;
+	grid-area: header;
+    display: flex;
+    height: 126px;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    flex-wrap: no-wrap;
+}
+
+.titulo{
+    flex-grow: 1;
+    text-align: right;
+}
+
+/* Redes socailes iconos */
+
+.redes{
+    flex-grow: 1;
+    display: flex;
+    width: 42px;
+    height: 42px;
+    justify-content: flex-end;
+
+}
+
+.redes img{
+    border-radius: 100%;
+    width: 42px;
+    height: 42px;
+}
+
+/* barra de navegacion diseño */
+.contenedor .navegador{
+    grid-area: navegador;
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+    background-color: rgb(174, 228, 205);
+
+}
+.menu_bar, .menu_responsivo{
+	display:none;
+}
+
+/* Display para que quede ocupando toda la parte de la pantalla */
+.navegador ul{
+    /* PAra que este ditribuido en toda la barra */
+    display: flex;
+}
+
+.menu > li{
+    position: relative;
+    flex-grow:1; 
+    text-align: center;
+}
+
+.menu > li  a{
+    background-color: rgb(174, 228, 205);
+    padding-top: 10px;
+    display: block;
+}
+
+.menu li ul {
+    display:none;
+    position:absolute;
+    min-width:100%;
+}
+
+.menu li:hover > ul {
+    display:block;
+}
+
+.menu li ul li {
+    position:relative;
+    z-index: 10000;
+    text-align: center;
+}
+
+.menu li ul li ul {
+    right:-100%;
+    top:0px;
+}
+
+nav a:hover{
+    color: #CE7D35;
+    transition: all .3s;
+    z-index: 3;
+}
+
+
+/* Barra izquierda de skills */
+.contenedor .barra {
+    background: #fAA43D;
+    grid-area: barra;
+    font-family: 'Caveat', cursive;
+    
+}
+
+
+.skills{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.skills li{
+    flex-grow: 1;
+    font-size: 25px;
+}
+
+.skills li img{
+    margin-right: 5px;
+    vertical-align: top;
+}
+
+
+/* Contenido del aritucolo */
+.contenedor .contenido {
+    background:rgb(47, 231, 216);
+    font-family: 'Roboto', sans-serif;
+	grid-area: contenido;
+}
+
+
+/* Footer diseño */
+.contenedor .footer {
+    text-align: center;
+	background: #12203E;
+	color: #fff;
+	grid-area: footer;
+}
+
+/* Estilos responsivos */
+
+/* Para tablet */
+
+/* @media screen and (max-width:1024px) and (min-width: 764px){
+    .contenedor{
+        width: 90%;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, auto);
+    
+        grid-template-areas: "header header header"
+                             "navegador navegador navegador"
+                             "contenido contenido contenido"
+                             "barra barra barra"
+                             "footer footer footer";
+    }
+
+
+    //Para la barra de las skills
+   .skills{
+        display:flex;
+        flex-direction: row;
+        justify-content:center;
+        flex-wrap: wrap;
+    }
+    .skills li{
+        font-size: 0;
+        flex-grow: 1;
+    }
+    .skills li img{
+        vertical-align: top;
+    }
+
+} */
+
+/* Para telefono moviles */
+@media screen and (max-width: 900px) {
+    .contenedor{
+        width: 90%;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, auto);
+    
+        grid-template-areas: "header header header"
+                             "navegador navegador navegador"
+                             "contenido contenido contenido"
+                             "barra barra barra"
+                             "footer footer footer";
+    }
+    .header{
+        flex-direction: column;
+        justify-content:center; 
+    }
+    .redes{
+        justify-content: center;
+    }
+    /* Para la barra de las skills */
+    .skills{
+        display:flex;
+        flex-direction: row;
+        justify-content:center;
+        flex-wrap: wrap;
+    }
+    .skills li{
+        font-size: 0;
+        flex-grow: 1;
+    }
+    .skills li img{
+        vertical-align: top;
+    }
+
+    /* Para el menu de navegacion */
+    
+	.navegador{
+        width:70%;
+		height:100%;
+		left:-100%;
+        top: 22.4%;
+		margin:0;
+		position: fixed;
+        overflow: scroll;
+    }
+
+    .navegador ul{
+       
+        /* PAra que este ditribuido en toda la barra */
+        
+        flex-direction: column;
+    }
+   
+    .menu li{
+        border-bottom:1px solid rgba(48, 109, 43, 0.3);
+
+    }
+  
+    .menu li ul {
+        position: relative;
+    }
+     
+	.menu_bar {
+        /* position: fixed; */
+		display:block;
+        grid-area: navegador;
+		width:100%;
+		background:#ccc;
+	}
+
+	.menu_bar .bt-menu {
+		display:block;
+		padding:20px;
+		background:#024959;
+		color:#fff;
+		font-size:25px;
+	}
+
+	.menu_bar span {
+		float:right;    
+		font-size:40px;
+	}
+
+    .menu li ul li {
+        display:block;
+        width: 100%;
+        position: relative;
+    }
+    .menu li:hover > ul {
+        display: none;
+    }
+    .menu li ul li ul {
+        right:0;
+        position: relative;
+        
+    }
+    .submenu a[href="https://github.com/PaulPio"]{
+        pointer-events: none;
+        cursor:pointer;
+        }
+
+
+ }
